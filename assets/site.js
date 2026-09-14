@@ -1,0 +1,4 @@
+const menu=document.querySelector('.menu');
+if(menu){menu.addEventListener('click',()=>{const nav=document.querySelector('.navlinks');const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false');});}
+const form=document.getElementById('quoteForm');
+if(form){form.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form);const subject=`JM Detailing enquiry - ${d.get('vehicle')}`;const body=`Name: ${d.get('name')}\nEmail: ${d.get('email')}\nPhone: ${d.get('phone')}\nVehicle: ${d.get('vehicle')}\nService: ${d.get('service')}\nMobile/drop-off: ${d.get('location')}\nPreferred timing: ${d.get('timing')}\n\nDetails:\n${d.get('message')}`;window.location.href=`mailto:JMDetailing1@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;});}
